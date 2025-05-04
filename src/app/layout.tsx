@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ReduxProvider } from "./StoreProvider";
 import { ToastContainer } from "react-toastify";
+import Sidebar from "@/components/Sidebar";
 
 const roboto = Roboto({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         <ReduxProvider>
           <Header />
           <ToastContainer />
+          <Sidebar />
           {children}
           <Footer />
         </ReduxProvider>

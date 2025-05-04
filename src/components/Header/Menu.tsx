@@ -6,7 +6,8 @@ import { Button } from "../ui/button";
 import SearchInput from "./SearchInput";
 import { toast } from "react-toastify";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/store.hooks";
-import { logout } from "@/lib/features/authSlice";
+import { login, logout } from "@/lib/features/authSlice";
+import Avatar from "./Avatar";
 
 function Menu() {
   const router = useRouter();
@@ -23,13 +24,15 @@ function Menu() {
       toast.error("Your session has expired");
       router.refresh();
       router.push("/");
+    } else {
+      dispatch(login());
     }
   }, [router]);
 
   return (
-    <main className="flex items-center gap-7 flex-1 justify-start">
+    <main className="gap-3 flex items-center sm:gap-7 flex-1 justify-end">
       <SearchInput />
-      <ul className="flex justify-between items-center gap-4 text-white">
+      <ul className="hidden md:flex justify-between items-center gap-4 text-white">
         <li className="hover:text-blue-100 hover:underline">
           <Link href={"/cart"}>Cart</Link>
         </li>
@@ -59,6 +62,7 @@ function Menu() {
         </div>
       ) : (
         <div className="flex justify-between items-center gap-5">
+          <Avatar />
           <Button
             onClick={() => {
               localStorage.removeItem("token");
