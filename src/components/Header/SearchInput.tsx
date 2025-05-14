@@ -29,7 +29,7 @@ function SearchInput() {
         value={searchKeyword}
         onChange={(e) => setSearchKeyword(e.target.value)}
         placeholder="Search..."
-        className="hidden sm:block w-[80%] md:w-[60%] p-2 rounded-md bg-sky-50 border-sky-900 text-sky-950 shadow-2xl"
+        className="block w-[80%] md:w-[60%] p-2 rounded-md bg-sky-50 border-sky-900 text-sky-950 shadow-2xl"
       />
     </form>
   );

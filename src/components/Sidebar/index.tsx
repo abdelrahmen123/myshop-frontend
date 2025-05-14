@@ -1,5 +1,6 @@
 "use client";
-import { useAppSelector } from "@/lib/hooks/store.hooks";
+import { closeSidebar } from "@/lib/features/sidebarSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks/store.hooks";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -39,6 +40,7 @@ const menuItems: MenuItem[] = [
 
 function Sidebar() {
   const isOpened = useAppSelector((state) => state.sidebar.isOpened);
+  const dispatch = useAppDispatch();
 
   return (
     <motion.aside
@@ -52,7 +54,9 @@ function Sidebar() {
       <ul>
         {menuItems.map((item) => (
           <li key={item.id} className="hover:text-blue-100 hover:underline">
-            <Link href={item.path}>{item.name}</Link>
+            <Link onClick={() => dispatch(closeSidebar())} href={item.path}>
+              {item.name}
+            </Link>
           </li>
         ))}
       </ul>

@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/store.hooks";
 import { login, logout } from "@/lib/features/authSlice";
 import Avatar from "./Avatar";
+import { getCart, setTotalPrice } from "@/lib/features/cartSlice";
+import { setUser } from "@/lib/features/userSlice";
 
 function Menu() {
   const router = useRouter();
@@ -29,16 +31,56 @@ function Menu() {
     }
   }, [router]);
 
+  useEffect(() => {
+    const initializeCart = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        if (token) {
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/cart/user-cart`,
+            {
+              method: "GET", // أو POST أو أي طريقة HTTP أخرى حسب الحاجة
+              headers: {
+                Authorization: `Bearer ${token}`, // إرسال التوكن في رأس Authorization
+                "Content-Type": "application/json", // إضافة رأس نوع المحتوى إذا كان مطلوبًا
+              },
+            }
+          );
+
+          const data = await response.json();
+          console.log(data);
+          console.log("User ==> ", data.data.user);
+          dispatch(setUser(data.data.user));
+          dispatch(getCart(data.data.cartItems));
+          dispatch(setTotalPrice(data.totalPrice));
+        }
+      } catch (error) {
+        console.log(error);
+        toast.error("Something went wrong");
+      }
+    };
+
+    if (isAuthenticated) {
+      initializeCart();
+    }
+  }, [isAuthenticated]);
+
   return (
     <main className="gap-3 flex items-center sm:gap-7 flex-1 justify-end">
       <SearchInput />
       <ul className="hidden md:flex justify-between items-center gap-4 text-white">
-        <li className="hover:text-blue-100 hover:underline">
-          <Link href={"/cart"}>Cart</Link>
-        </li>
-        <li className="hover:text-blue-100 hover:underline">
-          <Link href={"/orders"}>Orders</Link>
-        </li>
+        {isAuthenticated && (
+          <li className="hover:text-blue-100 hover:underline">
+            <Link href={"/cart"}>Cart</Link>
+          </li>
+        )}
+        {isAuthenticated && (
+          <li className="hover:text-blue-100 hover:underline">
+            <Link href={"/orders"}>Orders</Link>
+          </li>
+        )}
+
         <li className="hover:text-blue-100 hover:underline">
           <Link href={"/about"}>About Us</Link>
         </li>

@@ -23,11 +23,9 @@ function Section() {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/product?page=${page}&limit=12&category=${category}`
         );
-        console.log(response);
+
         const data = await response.json();
-        console.log(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/product?page=${page}&limit=12&category=${category}`
-        );
+
         dispatch(setProducts(data.data));
       } catch (error) {
         console.log(error);
