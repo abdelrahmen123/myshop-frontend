@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Menu from "./Menu";
-import SidebarHandlerButton from "./SidebarHandlerButton";
+import Menu from "../../modules/menu/components/Menu";
+import SidebarHandlerButton from "./components/SidebarHandlerButton";
 
 function Header() {
   return (

@@ -1,5 +1,5 @@
+import RegisterForm from "@/modules/auth/components/RegisterFor,";
 import React from "react";
-import RegisterForm from "./_components/RegisterForm";
 
 function SigninPage() {
   return (

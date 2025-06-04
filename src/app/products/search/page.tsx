@@ -1,5 +1,4 @@
-import React from "react";
-import SearchProductBody from "./_components/SearchProductBody";
+import SearchProductBody from "../../../modules/product-info/components/SearchProductBody";
 
 function SearchProductPage() {
   return <SearchProductBody />;

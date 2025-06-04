@@ -1,6 +1,6 @@
 import React from "react";
-import ProductPageBody from "./_components/ProductPageBody";
-import CommentsBox from "./_components/CommentsBox";
+import ProductPageBody from "../../../modules/product-info/components/ProductPageBody";
+import CommentsBox from "../../../modules/product-info/components/CommentsBox";
 
 function ProductPage() {
   return (
