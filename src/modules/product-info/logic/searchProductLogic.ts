@@ -1,7 +1,7 @@
 import handleError from "@/lib/logic/handleErrorLogic";
 import { toast } from "react-toastify";
 import fetchProductsByKeyword from "../services/searchProductService";
-import { Product } from "@/app/types";
+import { Product } from "@/lib/types/EntitiesTypes";
 
 const searchProductHandler = async (
   searchKeyword: string,

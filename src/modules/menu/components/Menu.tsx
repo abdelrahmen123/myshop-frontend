@@ -4,11 +4,10 @@ import { Button } from "../../../components/ui/button";
 import SearchInput from "./SearchInput";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/store.hooks";
 import Avatar from "../../../components/Header/components/Avatar";
-import { useGetUserCart } from "../hooks/useGetCart";
 import { useSessionGuard } from "../hooks/useSessionGuard";
 import logoutHandler from "../logic/logoutLogic";
 import { RouterType } from "@/lib/types/globalTypes";
-import { AppDispatch } from "@/lib/utils/store";
+import { AppDispatch } from "@/lib/store";
 import { useRouter } from "next/navigation";
 
 function Menu() {
@@ -19,7 +18,6 @@ function Menu() {
   const router: RouterType = useRouter();
 
   useSessionGuard();
-  useGetUserCart();
 
   return (
     <main className="gap-3 flex items-center sm:gap-7 flex-1 justify-end">

@@ -26,6 +26,7 @@ export type RemoveItemParams = {
   price: number;
   quantity: number;
   dispatch: AppDispatch;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type CartItemCardProps = {

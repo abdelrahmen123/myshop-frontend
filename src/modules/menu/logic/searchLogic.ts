@@ -1,6 +1,6 @@
 import { setSearchProductKeyword } from "@/modules/product-info/searchProductSlice";
 import { RouterType } from "@/lib/types/globalTypes";
-import { AppDispatch } from "@/lib/utils/store";
+import { AppDispatch } from "@/lib/store";
 
 export const submitSearchKeywordHandler = (
   e: React.FormEvent<HTMLFormElement>,

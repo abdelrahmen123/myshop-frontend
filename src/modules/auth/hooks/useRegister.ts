@@ -8,7 +8,8 @@ export const useRegister = () => {
   return async ({
     e,
     form,
+    setLoading,
   }: Omit<HandleRegisterFormSubmitParams, "router">) => {
-    return handleRegisterFormSubmit({ e, form, router });
+    return handleRegisterFormSubmit({ e, form, router, setLoading });
   };
 };

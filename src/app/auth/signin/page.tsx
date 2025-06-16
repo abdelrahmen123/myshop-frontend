@@ -3,7 +3,7 @@ import React from "react";
 
 function SigninPage() {
   return (
-    <div>
+    <div className="flex-1">
       <RegisterForm />
     </div>
   );

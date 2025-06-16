@@ -50,9 +50,12 @@ const productSlice = createSlice({
     setMarkedProduct: (state, action) => {
       state.markedProduct = action.payload;
     },
+    addNewReview: (state, action) => {
+      state.markedProduct.reviews.push(action.payload);
+    },
   },
 });
 
-export const { setProducts, setPageNumber, setMarkedProduct } =
+export const { setProducts, setPageNumber, setMarkedProduct, addNewReview } =
   productSlice.actions;
 export default productSlice.reducer;

@@ -10,7 +10,8 @@ export const useLogin = () => {
   return async ({
     e,
     form,
+    setLoading,
   }: Omit<HandleLoginFormSubmitParams, "dispatch" | "router">) => {
-    return handleFormSubmit({ e, form, dispatch, router });
+    return handleFormSubmit({ e, form, dispatch, router, setLoading });
   };
 };

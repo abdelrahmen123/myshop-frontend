@@ -8,6 +8,7 @@ export const handleRegisterFormSubmit = async ({
   e,
   form,
   router,
+  setLoading,
 }: HandleRegisterFormSubmitParams) => {
   e.preventDefault();
 
@@ -30,15 +31,22 @@ export const handleRegisterFormSubmit = async ({
   if (form.address && form.address?.length > 0) reqData.address = form.address;
 
   try {
+    setLoading(true);
+
     const data = await registerApiCall(reqData);
 
     if (data.status >= 400) {
       toast.error(data.message);
+
+      setLoading(false);
     } else {
       toast.success(data.message);
+      setLoading(false);
       router.push("/auth/login");
     }
   } catch (error) {
     handleError(error);
+  } finally {
+    setLoading(false);
   }
 };

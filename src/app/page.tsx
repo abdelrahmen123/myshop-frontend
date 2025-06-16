@@ -5,7 +5,7 @@ import Section from "../modules/product/components/ProductsSection";
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex-1">
       <BestSellers />
       <div>
         <Categories />

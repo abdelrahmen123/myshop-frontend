@@ -1,6 +1,6 @@
 import { logout } from "@/modules/auth/authSlice";
 import { RouterType } from "@/lib/types/globalTypes";
-import { AppDispatch } from "@/lib/utils/store";
+import { AppDispatch } from "@/lib/store";
 
 const logoutHandler = (dispatch: AppDispatch, router: RouterType) => {
   localStorage.removeItem("token");

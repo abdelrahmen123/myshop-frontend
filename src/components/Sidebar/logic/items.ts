@@ -1,4 +1,4 @@
-import { MenuItem } from "@/lib/types/sidebarTypes";
+import { MenuItem } from "../sidebarTypes";
 
 const menuItems: MenuItem[] = [
   {

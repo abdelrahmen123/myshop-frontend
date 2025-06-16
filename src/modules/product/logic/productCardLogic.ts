@@ -9,7 +9,7 @@ const handleLearnMore = (
   router: RouterType
 ) => {
   dispatch(setMarkedProduct(product));
-  router.push("/products/product-info");
+  router.push(`/products/${product.id}`);
 };
 
 export default handleLearnMore;

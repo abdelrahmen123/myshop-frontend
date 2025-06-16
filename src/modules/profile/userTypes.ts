@@ -1,5 +1,5 @@
-import { Roles } from "../enums/rolesEnums";
-import { User } from "./EntitiesTypes";
+import { Roles } from "../../lib/enums/rolesEnums";
+import { User } from "../../lib/types/EntitiesTypes";
 
 export type SafeUserType = Omit<User, "password">;
 
@@ -19,5 +19,4 @@ export interface UpdateUserDto {
   role?: Roles;
   phone?: string;
   address?: string;
-  image?: string;
 }

@@ -22,10 +22,12 @@ export type HandleLoginFormSubmitParams = {
   form: LoginForm;
   dispatch: AppDispatch;
   router: RouterType;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type HandleRegisterFormSubmitParams = {
   e: React.FormEvent<HTMLFormElement>;
   form: RegisterForm;
   router: RouterType;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };

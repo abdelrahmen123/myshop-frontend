@@ -1,4 +1,4 @@
-import { Category } from "@/app/types";
+import { Category } from "@/lib/types/EntitiesTypes";
 import { createSlice } from "@reduxjs/toolkit";
 
 interface CategoryState {

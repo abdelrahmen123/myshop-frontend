@@ -1,6 +1,6 @@
 function AboutPage() {
   return (
-    <div className="container mx-auto p-4 mt-10 text-gray-600">
+    <div className="container mx-auto p-4 mt-10 text-gray-600 flex-1">
       <h1 className="text-3xl font-bold mb-4 text-gray-700">About Us</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus

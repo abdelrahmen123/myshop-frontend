@@ -1,6 +1,6 @@
 import { HandleLoginFormSubmitParams } from "./../authTypes";
 import { toast } from "react-toastify";
-import { LoginForm, LoginResponse } from "../authTypes";
+import { LoginResponse } from "../authTypes";
 import { loginSchema } from "../validations/loginValidation";
 import loginApiCall from "../service/loginService";
 import handleError from "@/lib/logic/handleErrorLogic";
@@ -12,6 +12,7 @@ export const handleFormSubmit = async ({
   form,
   dispatch,
   router,
+  setLoading,
 }: HandleLoginFormSubmitParams) => {
   e.preventDefault();
 
@@ -25,6 +26,7 @@ export const handleFormSubmit = async ({
   }
 
   try {
+    setLoading(true);
     const data: LoginResponse = await loginApiCall(form);
 
     if (data === null) {
@@ -40,9 +42,12 @@ export const handleFormSubmit = async ({
       dispatch(login());
 
       toast.success(data.message);
+      setLoading(false);
       router.push("/");
     }
   } catch (error) {
     handleError(error);
+  } finally {
+    setLoading(false);
   }
 };

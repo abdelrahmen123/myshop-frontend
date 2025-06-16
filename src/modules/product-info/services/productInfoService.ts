@@ -23,3 +23,15 @@ const addToCartApiCall = async (quantity: number, productId: string) => {
 };
 
 export default addToCartApiCall;
+
+export const getProductApiCall = async (productId: string) => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/product/${productId}`
+    );
+    return response.json();
+  } catch (error) {
+    handleError(error);
+    return null;
+  }
+};

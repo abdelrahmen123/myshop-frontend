@@ -3,7 +3,7 @@ import {
   getExpiresAtFromLocalStorage,
   getTokenFromLocalStorage,
 } from "../services/getTokenFromLocalStorage";
-import { AppDispatch } from "@/lib/utils/store";
+import { AppDispatch } from "@/lib/store";
 import { login } from "@/modules/auth/authSlice";
 import { RouterType } from "@/lib/types/globalTypes";
 

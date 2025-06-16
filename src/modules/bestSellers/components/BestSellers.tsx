@@ -1,13 +1,11 @@
-"use client";
-import { useState } from "react";
 import ProductCard from "../../product/components/ProductCard";
-import useFetchBestProducts from "../hooks/useFetchBestProducts";
 import { Product } from "@/lib/types/EntitiesTypes";
+import fetchBestProductsApiCall from "../services/bestSellersService";
+import { GetAllProducts } from "@/modules/product/product.Types";
 
-function BestSellers() {
-  const [bestProducts, setBestProducts] = useState<Product[]>([]);
-
-  useFetchBestProducts(setBestProducts);
+async function BestSellers() {
+  const res: GetAllProducts = await fetchBestProductsApiCall();
+  const bestProducts: Product[] = res.data;
 
   return (
     <section className="my-10 mx-10 flex flex-col gap-4">

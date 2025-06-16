@@ -2,6 +2,7 @@
 import { useState } from "react";
 import type { RegisterForm } from "../authTypes";
 import { useRegister } from "../hooks/useRegister";
+import { Loader2 } from "lucide-react";
 
 function RegisterForm() {
   const [form, setForm] = useState<RegisterForm>({
@@ -12,6 +13,7 @@ function RegisterForm() {
     phone: "",
     address: "",
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
   const registerHandler = useRegister();
 
@@ -19,7 +21,7 @@ function RegisterForm() {
     <main className="flex justify-center items-center">
       <form
         onSubmit={(e: React.FormEvent<HTMLFormElement>) =>
-          registerHandler({ e, form })
+          registerHandler({ e, form, setLoading })
         }
         className="flex flex-col gap-14 m-20 w-[65%] p-14 bg-sky-500 rounded-md justify-center"
       >
@@ -71,8 +73,18 @@ function RegisterForm() {
           placeholder="Address..."
           onChange={(e) => setForm({ ...form, address: e.target.value })}
         />
-        <button className="bg-amber-500 rounded-md text-sky-50 text-xl p-3 font-semibold hover:bg-transparent border-4 border-transparent hover:border-amber-500 hover:text-amber-500">
-          Submit
+        <button
+          className={`${
+            loading
+              ? "cursor-progress flex justify-center items-center"
+              : "cursor-pointer"
+          } bg-amber-500 rounded-md text-sky-50 text-xl p-3 font-semibold hover:bg-transparent border-4 border-transparent hover:border-amber-500 hover:text-amber-500`}
+        >
+          {loading ? (
+            <Loader2 className="animate-spin text-white font-semibold" />
+          ) : (
+            "Submit"
+          )}
         </button>
       </form>
     </main>

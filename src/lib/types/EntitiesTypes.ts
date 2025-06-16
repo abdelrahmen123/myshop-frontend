@@ -66,8 +66,6 @@ interface Review extends Entity {
   product: Product;
 }
 
-interface SupplierRequest extends Entity {}
-
 interface Order extends Entity {
   userId: string;
   user: User;
@@ -91,7 +89,6 @@ export type {
   Category,
   Product,
   Review,
-  SupplierRequest,
   Order,
   OrderItem,
 };

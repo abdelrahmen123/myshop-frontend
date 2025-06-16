@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import searchProductHandler from "../logic/searchProductLogic";
-import { Product } from "@/app/types";
+import { Product } from "@/lib/types/EntitiesTypes";
 
 export const useSearchProduct = (
   searchKeyword: string,

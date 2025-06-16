@@ -13,6 +13,7 @@ const loginApiCall = async (form: LoginForm) => {
           email: form.email,
           password: form.password,
         }),
+        cache: "no-store",
       }
     );
     return response.json();

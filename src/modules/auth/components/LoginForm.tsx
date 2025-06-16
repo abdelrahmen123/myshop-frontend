@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
-import { LoginForm } from "../authTypes";
+import { Loader2 } from "lucide-react";
 
 function LoginForm() {
-  const [form, setForm] = useState<LoginForm>({
+  const [form, setForm] = useState({
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
   const loginHandler = useLogin();
 
@@ -15,7 +16,7 @@ function LoginForm() {
     <main className="flex justify-center items-center">
       <form
         onSubmit={(e: React.FormEvent<HTMLFormElement>) =>
-          loginHandler({ e, form })
+          loginHandler({ e, form, setLoading })
         }
         className="flex flex-col gap-14 m-20 w-[65%] p-14 bg-sky-500 rounded-md justify-center"
       >
@@ -37,8 +38,17 @@ function LoginForm() {
           placeholder="Password..."
           onChange={(e) => setForm({ ...form, password: e.target.value })}
         />
-        <button className="bg-amber-500 rounded-md text-sky-50 text-xl p-3 font-semibold hover:bg-transparent border-4 border-transparent hover:border-amber-500 hover:text-amber-500">
-          Submit
+        <button
+          disabled={loading}
+          className={`${
+            loading ? "cursor-progress" : "cursor-pointer"
+          } bg-amber-500 rounded-md text-sky-50 text-xl p-3 font-semibold hover:bg-transparent border-4 border-transparent flex justify-center items-center hover:border-amber-500 hover:text-amber-500`}
+        >
+          {loading ? (
+            <Loader2 className="animate-spin text-white font-semibold" />
+          ) : (
+            "Submit"
+          )}
         </button>
       </form>
     </main>

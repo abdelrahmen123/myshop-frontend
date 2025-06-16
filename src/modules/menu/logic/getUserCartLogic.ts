@@ -1,7 +1,7 @@
 import handleError from "@/lib/logic/handleErrorLogic";
 import getUserCartApiCall from "../services/getUserCartService";
 import { getTokenFromLocalStorage } from "../services/getTokenFromLocalStorage";
-import { AppDispatch } from "@/lib/utils/store";
+import { AppDispatch } from "@/lib/store";
 import { getCart, setTotalPrice } from "@/modules/cart/cartSlice";
 import { setUser } from "../userSlice";
 

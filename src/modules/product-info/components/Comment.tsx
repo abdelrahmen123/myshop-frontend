@@ -1,5 +1,6 @@
-import { Review } from "@/app/types";
+"use client";
 import { Button } from "@/components/ui/button";
+import { Review } from "@/lib/types/EntitiesTypes";
 import { Edit2Icon, Trash2Icon } from "lucide-react";
 
 function Comment({ review }: { review: Review }) {

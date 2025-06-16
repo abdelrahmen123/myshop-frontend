@@ -29,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${inter.variable} antialiased`}>
+      <body
+        className={`${roboto.variable} ${inter.variable} antialiased flex flex-col min-h-screen`}
+      >
         <ReduxProvider>
           <Header />
           <ToastContainer />
