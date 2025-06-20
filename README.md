@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ متجر إلكتروني - الواجهة الأمامية (Frontend)
 
-## Getting Started
+الواجهة الأمامية مبنية باستخدام [Next.js](https://nextjs.org/) وتتصل بـ API مبني بـ NestJS.  
+توفر تجربة مستخدم سلسة لعرض المنتجات، تسجيل الدخول، إدارة السلة، والطلبات.
 
-First, run the development server:
+---
+
+## 🚀 المتطلبات
+
+- Node.js >= 18
+- pnpm أو npm أو yarn
+- اتصال بخادم الـ Backend
+
+---
+
+## 📦 التثبيت
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+pnpm install
+# أو
+npm install
+# أو
+yarn install
+``` 
+⚙️ الإعداد
+أنشئ ملف .env في جذر المشروع:
+- NEXT_PUBLIC_API_URL=http://localhost:3000
+
+---
+
+▶️ التشغيل
 ```
+npm run dev
+yarn run dev
+pnpm run dev
+```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🛠️ البناء للإنتاج
+```
+pnpm run build
+pnpm run start
+```
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🧱 بنية المشروع
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+``` 
+src/
+├── pages/               ← الصفحاتتفاصيل المنتج
+├── components/          ← مكونات الواجهة
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   └── ...
+├── modules/             ← منطق السلة، الطلبات، المنتجات...
+├── lib/                 ← دوال مساعدة
+```
+---
 
-## Learn More
+💡 الميزات
+- تسجيل الدخول والتسجيل باستخدام JWT
+- عرض المنتجات والتصنيفات
+- فلترة المنتجات حسب التصنيف
+- سلة شراء ديناميكية
+- سلة شراء ديناميكية
+- تقييم المنتجات
+- تجربة مستخدم محسّنة مع رسائل تنبيه (Toasts)
+- تحميل كسول (Lazy loading) للصور والمكونات
+---
 
-To learn more about Next.js, take a look at the following resources:
+🧠 التقنيات المستخدمة
+- NextJs
+- ReactJs
+- TailwindCss
+- Redux
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🖼️ صور من التطبيق
+![الصفحة الرئيسية](public/screenshots/home.png)
+![صفحة المنتج](public/screenshots/product.png)
+![السلة](public/screenshots/cart.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+👨‍💻 المطور
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+تم تطوير هذه الواجهة كجزء من مشروع متجر إلكتروني كامل.
+المشروع مفتوح المصدر ويقبل المساهمات.
+
+GitHub: @username
