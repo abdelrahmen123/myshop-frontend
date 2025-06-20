@@ -78,7 +78,9 @@ src/
 
 🖼️ صور من التطبيق
 ![الصفحة الرئيسية](public/screenshots/home.png)
+---
 ![صفحة المنتج](public/screenshots/product.png)
+---
 ![السلة](public/screenshots/cart.png)
 
 
